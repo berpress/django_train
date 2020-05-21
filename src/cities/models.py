@@ -11,4 +11,6 @@ class City(models.Model):
         return self.name
 
     class Meta:
-        pass
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
+        ordering = ['name']
