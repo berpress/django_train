@@ -2,7 +2,7 @@ start:
 	@poetry run src/manage.py runserver
 
 env:
-	source ./env/bin/activate
+	@poetry run source ./env/bin/activate
 
 migrate:
 	@poetry run src/manage.py migrate
