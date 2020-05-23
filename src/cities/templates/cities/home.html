@@ -1,17 +1,46 @@
 {% extends "base.html" %}
 {% block title%} Город {% endblock%}
 {% block content%}
-<h1 class="display-4">Город</h1>
+<h1 class="display-4 text-center my-4">Cities</h1>
 <div class="row">
-    <div class='col-md-6'>
-        {% for object in objects_list%}
-            <p>{{object.name}}</p>
-        {% endfor%}
+    <div class='col-md-6 mx-auto'>
+        <table class="table">
+            <thead class="thead-dark">
+            <tbody>
+                {% for object in objects_list%}
+                    <tr>
+                        <td>
+                            <a href="{% url 'city:detail' pk=object.pk%}">
+                                {{object.name}}</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'city:update' pk=object.pk%}">
+                                <button type="button" class="btn btn-secondary">Edit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'city:delete' pk=object.pk%}">
+                                 <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+
+                        </td>
+
+                {% endfor%}
+                        </tr>
+                </tbody>
+        </table>
     </div>
 </div>
+<div class="row">
+    <div class='col-md-6 mx-auto'>
+            <a href="{% url 'city:add' %}">
+            <button type="button" class="btn btn-info">Add city</button>
+                </a>
+        </div>
+</div>
+{% endblock%}
 <form action="" method="post"> {% csrf_token %}
    {{form.as_p}}
     <br>
   <input type="submit" value="Save">
 </form>
-{% endblock%}
