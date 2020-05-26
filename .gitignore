@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
-src/travel/settings/local.py
+travel/settings/local.py
 # C extensions
 *.so
 
