@@ -5,9 +5,9 @@ env:
 	@poetry run source ./env/bin/activate
 
 migrate:
-	@poetry run src/manage.py migrate
+	@poetry run ./manage.py migrate
 
 make_migrate:
-	@poetry run src/manage.py makemigrations
+	@poetry run ./manage.py makemigrations
 
 
