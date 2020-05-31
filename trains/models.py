@@ -1,4 +1,5 @@
 # Create your models here.
+from django.core.exceptions import ValidationError
 from django.db import models
 from cities.models import City
 
@@ -20,3 +21,14 @@ class Train(models.Model):
         verbose_name = 'Train'
         verbose_name_plural = 'Trains'
         ordering = ['name']
+
+    def clean(self, *args, **kwargs):
+        if self.to_city == self.from_city:
+            raise ValidationError('Check city')
+        qs = Train.objects.filter(from_city = self.from_city,
+                                  to_city=self.to_city,
+                                  travel_time=self.travel_time).\
+            exclude(pk=self.pk)
+        if qs.exists():
+            raise ValidationError('Change time')
+        return super(Train, self).clean(*args, **kwargs)

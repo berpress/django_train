@@ -1,5 +1,5 @@
 start:
-	@poetry run manage.py runserver
+	@poetry run ./manage.py runserver
 
 env:
 	@poetry run source ./env/bin/activate
