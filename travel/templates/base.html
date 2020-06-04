@@ -1,4 +1,8 @@
 {% url 'city:home' as city_home_url%}
+{% url 'train:home' as train_home_url%}
+{% url 'train:add' as train_add_url%}
+{% url 'city:add' as city_add_url%}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,7 +28,7 @@
   <a class="btn btn-outline-primary" href="#">Sign up</a>
 </div>-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="{% url 'hello'%}">Train map</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -34,16 +38,19 @@
       <li class="nav-item {% if request.path == city_home_url%} active {% endif %}">
         <a class="nav-link" href="{% url 'city:home'%}">Cities <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'train:home'%}">Trains <span class="sr-only">(current)</span></a>
+      <li class="nav-item {% if request.path == train_home_url%} active {% endif %}">
+        <a class="nav-link" href="{% url 'train:home'%}">Trains</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown
+        {% if request.path == train_add_url or request.path == city_add_url%}
+          active
+        {% endif %}">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Action
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'city:home'%}">Города</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{% url 'city:add'%}">Add city</a>
+          <a class="dropdown-item" href="{% url 'train:add'%}">Add train</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>

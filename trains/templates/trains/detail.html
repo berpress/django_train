@@ -4,7 +4,48 @@
 <h1 class="display-4">Train</h1>
 <div class="row">
     <div class='col-md-6'>
-            <p> City name: {{object.name}}</p>
+                    <table class="table">
+            <thead class="thead-dark">
+            <thead>
+                <tr>
+                    <th>Number train</th>
+                    <th>From city</th>
+                    <th>To city</th>
+                    <th>Time</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>
+                            <a href="">
+                                {{object.name}}</a>
+                        </td>
+                        <td>
+                                {{object.from_city}}
+                        </td>
+                        <td>
+                                {{object.to_city}}
+                        </td>
+                        <td>
+                                {{object.travel_time}}
+                        </td>
+                        <td>
+                            <a href="{% url 'train:update' pk=object.pk %}">
+                                <button type="button" class="btn btn-secondary">Edit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'train:delete' pk=object.pk %}">
+                                 <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+
+                        </td>
+
+                        </tr>
+                </tbody>
+        </table>
     </div>
 </div>
 
