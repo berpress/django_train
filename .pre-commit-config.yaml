@@ -1,4 +1,14 @@
 repos:
+#- repo: https://github.com/pre-commit/pre-commit-hooks
+#  rev: v2.2.3
+#  hooks:
+#      - id: trailing-whitespace
+#      - id: check-json
+#      - id: check-merge-conflict
+#      - id: check-yaml
+##      - id: debug-statements
+#      - id: end-of-file-fixer
+#      - id: requirements-txt-fixer
 -   repo: https://github.com/ambv/black
     rev: 19.10b0
     hooks:
@@ -8,13 +18,3 @@ repos:
     rev: 3.7.9
     hooks:
     - id: flake8
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.2.3
-    hooks:
-    - id: trailing-whitespace
-    - id: check-json
-    - id: check-merge-conflict
-    - id: check-yaml
-    - id: debug-statements
-    - id: end-of-file-fixer
-    - id: requirements-txt-fixer
