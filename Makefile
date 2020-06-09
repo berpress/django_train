@@ -10,4 +10,5 @@ migrate:
 make_migrate:
 	@poetry run ./manage.py makemigrations
 
-
+lint:
+	@poetry run pre-commit run --all-files

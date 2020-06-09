@@ -8,24 +8,51 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('cities', '0003_auto_20200531_1657'),
-    ]
+    dependencies = [("cities", "0003_auto_20200531_1657")]
 
     operations = [
         migrations.CreateModel(
-            name='Train',
+            name="Train",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=99, unique=True, verbose_name='Number train')),
-                ('travel_time', models.IntegerField(verbose_name='hours')),
-                ('from_city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='from_city', to='cities.City', verbose_name='From')),
-                ('to_city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='to_city', to='cities.City', verbose_name='To')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=99, unique=True, verbose_name="Number train"
+                    ),
+                ),
+                ("travel_time", models.IntegerField(verbose_name="hours")),
+                (
+                    "from_city",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="from_city",
+                        to="cities.City",
+                        verbose_name="From",
+                    ),
+                ),
+                (
+                    "to_city",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="to_city",
+                        to="cities.City",
+                        verbose_name="To",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Train',
-                'verbose_name_plural': 'Trains',
-                'ordering': ['name'],
+                "verbose_name": "Train",
+                "verbose_name_plural": "Trains",
+                "ordering": ["name"],
             },
-        ),
+        )
     ]

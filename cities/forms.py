@@ -7,11 +7,13 @@ from .models import City
 
 
 class CityForm(forms.ModelForm):
-    name = forms.CharField(label='City',
-                           widget=forms.
-                           TextInput(attrs={'class': 'form-control',
-                                            'placeholder': 'Enter city name'}))
+    name = forms.CharField(
+        label="City",
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Enter city name"}
+        ),
+    )
 
     class Meta(object):
         model = City
-        fields = ('name', )
+        fields = ("name",)

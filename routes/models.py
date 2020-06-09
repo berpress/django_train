@@ -1,5 +1,4 @@
 from django.db import models
-from trains.models import Train
 
 
 class Route(models.Model):
