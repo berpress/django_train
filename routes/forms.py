@@ -5,17 +5,17 @@ from .models import Route
 
 class RouteForm(forms.Form):
     from_city = forms.ModelChoiceField(
-        label="Откуда",
+        label="From",
         queryset=City.objects.all(),
         widget=forms.Select(attrs={"class": "form-control js-example-basic-single"}),
     )
     to_city = forms.ModelChoiceField(
-        label="Куда",
+        label="To",
         queryset=City.objects.all(),
         widget=forms.Select(attrs={"class": "form-control js-example-basic-single"}),
     )
     across_cities = forms.ModelMultipleChoiceField(
-        label="Через города",
+        label="Across cities",
         queryset=City.objects.all(),
         required=False,
         widget=forms.SelectMultiple(
@@ -23,9 +23,9 @@ class RouteForm(forms.Form):
         ),
     )
     travelling_time = forms.IntegerField(
-        label="Поезд",
+        label="Train",
         widget=forms.NumberInput(
-            attrs={"class": "form-control", "placeholder": "Время в пути"}
+            attrs={"class": "form-control", "placeholder": "Travelling time"}
         ),
     )
 
