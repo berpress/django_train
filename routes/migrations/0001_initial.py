@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 (
                     "name",
                     models.CharField(
-                        max_length=99, unique=True, verbose_name="Name route"
+                        max_length=99, unique=True, verbose_name="Name routes"
                     ),
                 ),
                 ("from_city", models.CharField(max_length=99, verbose_name="From")),

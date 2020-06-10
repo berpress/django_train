@@ -3,9 +3,9 @@ from trains.models import Train
 
 
 class Route(models.Model):
-    name = models.CharField(max_length=99, unique=True, verbose_name="Name route")
+    name = models.CharField(max_length=99, unique=True, verbose_name="Name routes")
     from_city = models.CharField(max_length=99, verbose_name="From")
-    to_city = models.CharField(max_length=99, verbose_name="From")
+    to_city = models.CharField(max_length=99, verbose_name="To")
     across_cities = models.ManyToManyField(
         Train, blank=True, verbose_name="Across cities"
     )
